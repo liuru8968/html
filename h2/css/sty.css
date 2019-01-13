@@ -1,0 +1,51 @@
+h1{
+  color: blue;
+  font-size: 50px;
+  border: 2px solid black;
+  text-align: center;
+  letter-spacing: 10px
+}
+h3{
+	border: 2px solid black;
+}
+.css{color: red}
+.c1{text-indent:40px;}
+.cr1{color: blue;}
+
+.font1{font-size:10px;}
+.font2{font-family:標楷體;}
+.font3{font-style:italic}
+.font4{font-weight:bold}
+
+.text1{text-align:center;}
+.text2{text-indent:60px}
+.text3{text-decoration:underline;}
+
+.line{line-height:2}
+.letter{letter-spacing:5px}
+
+.border1{border:3px solid;}
+.border2{border:3px dashed;}
+.border3{border:3px double;}
+.border4{border:3px dotted;}
+.border5{border:3px groove;}
+.border6{border:3px ridge;}
+.border7{border:3px inset;}
+.border8{border:3px outset;}
+
+.bor1{border-bottom:3px solid;}
+.bor2{border-top:3px solid;}
+.bor3{border-left:3px solid;}
+.bor4{border-right: 3px solid;}
+
+a{
+  font-size: 40px;
+}
+.a1:hover{
+  color: red;
+  font-size: 70px;
+}
+.a2:active{
+  color: yellow;
+  font-size: 70px;
+}
