@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tw">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"href="CSS/ex.css">
+    <title>互動式範例</title>
+  </head>
+  <body>
+    <div class="backd">
+        <img src="網頁照片/ex.jpg">
+    </div>
+  <center> 
+   <h1>
+    <table WIDTH= "1250" HEIGHT="100"border="1"bgcolor="#FAFAFA">
+      <tr><td align='center' valign="middle">互動式範例</td></tr>
+    </table>
+  </h1>
+  <table style="border:10px #6363FF groove"WIDTH= "1000" HEIGHT="300"border="1"CELLSPACING="5"  bgcolor="#F0F0F0">
+  <tr><td valign="middle"><h2 align='center'>設計連結互動觸發</h2></td></tr> 
+  <tr><td>
+    <ol class="text1">
+      <li>在滑鼠點擊後的事件</li>
+        <p><a class="a1" href="https://www.google.com/"target="_blank">go home goole</a></p>
+   	  <li>滑鼠觸碰後的事件</li>
+        <p><a class="a2" href="https://www.google.com/">go home goole</a></p>
+      <li>點擊後取得焦點</li>
+        <p><a class="a3" href="https://www.google.com/"target="_blank">go home goole</a></p>
+      <li>顯示小視窗提醒</li>
+        <p><a target="_blank" title="連到google" 
+       href="https://www.google.com.tw/">go home goole</a></p>
+     <li>點擊圖片前往連結網址</li>
+        <p><a href="https://www.google.com.tw/">
+          <img src="網頁照片/google.png"></a></p>
+    </ol>
+    </td></tr>
+  </table>
+  <br>
+  <table style="border:10px #6363FF groove"WIDTH= "1000" HEIGHT="300"border="1"CELLSPACING="5"  bgcolor="#F0F0F0">
+  <tr><td valign="middle"><h2 align='center'>設計按鈕互動</h2></td></tr> 
+  <tr><td>
+    <ol class="text1">
+      <li>按鈕基本語法</li>
+        <p><button class="bu1" type="button">我是按鈕</button></p>
+      <li>圖片型按鈕</li>
+        <p><button type="button"><img src="網頁照片/google.png"></button></p>
+      <li>超連結按鈕</li>
+        <p><input class="inp1" type="button" value="前往google首頁" onclick="location.href='https://www.google.com.tw/'"></p>
+      <li>按鈕的禁用語法</li>
+        <p><input class="inp1" type="button" disabled="disabled" value="你沒辦法按了哈哈"></p>
+    <li>選項按鈕</li>
+        <br>
+        請選擇居住區域<br>
+        <input class="inp2" type="radio" name="location" value="Taipei"> 台北
+        <input class="inp2" type="radio" name="location" value="Taoyuan"> 桃園<br>
+        <input class="inp2" type="radio" name="location" value="Taoyuan"> 新北
+        <input class="inp2" type="radio" name="location" value="Taoyuan"> 基隆<br>
+        </br>
+    <li>多選項選擇</li>
+        <br>
+        請勾選你的興趣<br>
+　      <input class="inp2" type="checkbox" value="Travel" name="Interest"> 旅遊
+        <input class="inp2" type="checkbox" value="Movie" name="Interest"> 電影
+        <input class="inp2" type="checkbox" value="Food" name="Interest"> 美食
+        <input class="inp2" type="checkbox" value="motion" name="Interest">運動 
+    </ol>
+  </tr></td>
+  </table>
+  <br>
+   <table style="border:10px #6363FF groove"WIDTH= "1000" HEIGHT="300"border="1"CELLSPACING="5"  bgcolor="#F0F0F0">
+  <tr><td valign="middle"><h2 align='center'>設計表單</h2></td></tr> 
+  <tr><td>
+    <ol class="text1">
+      <li>文字輸入欄位</li>
+        <p><form>請輸入文字：<input class="inp1" type="text" name="欄位名稱"></form></p>
+      <li>文字輸入欄位內容</li>
+        <p><textarea>輸入你想要寫的內容...</textarea></p>
+      <li>下拉式選單</li>
+        <p><form>
+          請選擇你的學校
+          <select name="Yourschool">
+　          <option value="龍華">龍華科技大學</option>
+　          <option value="長庚">長庚科技大學</option>
+            <option value="體育">國立體育大學</option>
+            <option value="明志">明志科技大學</option>
+            <option value="輔仁">輔仁大學</option>
+          </select>
+        </form></p>
+     <li>清除表單按鈕</li>
+        <p><form>
+　         <input class="inp1" type="text">
+　         <input class="inp1" type="reset" value="清除表單">
+        </form></p>
+    </tr></td>
+  </table>
+  </center>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+h1{
+  color: blue;
+  font-size: 60px;
+  font-family:標楷體;
+}
+h2{
+  color: red;
+  font-size: 35px;
+  text-align: center;
+  letter-spacing:3px;
+  font-family:微軟正黑體;
+}
+.backd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -999;
+        }
+.backd img {
+ min-height: 100%;
+  width: 100%;
+}

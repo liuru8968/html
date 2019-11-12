@@ -1,0 +1,68 @@
+.backd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -999;
+}
+.backd img {
+ min-height: 100%;
+  width: 100%;
+}
+h1{
+  color: blue;
+  font-size: 60px;
+  font-family:標楷體;
+}
+
+h2{
+  font-size: 40px;
+  font-family:微軟正黑體;
+}
+.text1{
+  font-size: 25px;
+  font-family:微軟正黑體;
+}
+
+.a1:active{
+  color: yellow;
+  font-size: 50px;
+  position: relative;
+}
+.a2:hover{
+  color: red;
+  font-size: 50px;
+}
+.a3:focus{
+  color: blue;
+  font-size: 50px;;
+}
+.bu1{
+	width:200px;
+	height:50px;
+	font-size:25px;
+}
+.inp1{
+	width:220px;
+	height:50px;
+	font-size:25px;
+}
+.inp2{
+	width:20px;
+	height:20px;
+}
+textarea{
+	width:600px;
+	height:120px;
+	font-size:20px;
+	font-family:微軟正黑體;
+}
+select{
+	width:150px;
+	height:50px;
+}
+option{
+	font-size:25px;
+	font-family:微軟正黑體;
+}
