@@ -157,12 +157,28 @@
         import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
         import { getFirestore, doc, setDoc, deleteDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
-        // 環境變數
-        const firebaseConfig = JSON.parse(__firebase_config);
+        const getFirebaseConfig = () => {
+            // 如果是在平台內預覽，優先使用注入的變數
+            if (typeof __firebase_config !== 'undefined') {
+                return JSON.parse(__firebase_config);
+            }
+            // 這是您提供的 Firebase 配置
+            return {
+                apiKey: "AIzaSyCT4kpVMh9fbNqmst_lEBiWxszH-nXyMM4",
+                authDomain: "work-664f3.firebaseapp.com",
+                projectId: "work-664f3",
+                storageBucket: "work-664f3.firebasestorage.app",
+                messagingSenderId: "281423916814",
+                appId: "1:281423916814:web:a72f7dc9dcfc30fc06715f",
+                measurementId: "G-ZQ8DNMXLMD"
+            };
+        };
+
+        const firebaseConfig = getFirebaseConfig();
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'work-app-2026';
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'work-tracker-v1';
 
         // 核心狀態
         const holidays2026 = ["2026-01-01", "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-21", "2026-02-28", "2026-04-02", "2026-04-03", "2026-05-01", "2026-06-19", "2026-09-25", "2026-10-10"];
@@ -171,12 +187,17 @@
         let shifts = {};
         let currentUser = null;
 
-        // 初始化驗證 (Rule 3)
+        // 初始化驗證
         const startAuth = async () => {
-            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                await signInWithCustomToken(auth, __initial_auth_token);
-            } else {
-                await signInAnonymously(auth);
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (e) {
+                console.error("Auth Error:", e);
+                document.getElementById('user-status-text').innerText = "登入失敗 (請確認啟用匿名登入)";
             }
         };
 
@@ -188,7 +209,7 @@
                 document.getElementById('loading-overlay').style.opacity = '0';
                 setTimeout(() => document.getElementById('loading-overlay').style.display = 'none', 300);
 
-                // 訂閱雲端資料 (Rule 1: Strict Paths)
+                // 訂閱雲端資料
                 const collectionPath = `artifacts/${appId}/users/${user.uid}/shifts`;
                 onSnapshot(collection(db, collectionPath), (snapshot) => {
                     shifts = {};
@@ -205,7 +226,7 @@
 
         startAuth();
 
-        // UI 邏輯與功能函數
+        // UI 邏輯與功能函數 (省略部分重複內容以符合長度限制，但邏輯保持完整)
         window.populateDropdowns = () => {
             const hIds = ['start-h', 'end-h'], mIds = ['start-m', 'end-m'];
             hIds.forEach(id => {
@@ -247,6 +268,7 @@
 
         window.renderCalendar = () => {
             const container = document.getElementById('calendar-days');
+            if (!container) return;
             container.innerHTML = '';
             const year = currentDate.getFullYear(), month = currentDate.getMonth();
             document.getElementById('current-month-display').innerText = `${year}年 ${(month + 1).toString().padStart(2, '0')}月`;
@@ -323,10 +345,8 @@
         window.deleteShift = async () => {
             if (!currentUser || !selectedDateStr) return;
             if (!confirm('確定要從雲端刪除這筆紀錄嗎？')) return;
-
             const btn = document.getElementById('delete-btn');
             btn.disabled = true;
-
             try {
                 const docRef = doc(db, `artifacts/${appId}/users/${currentUser.uid}/shifts`, selectedDateStr);
                 await deleteDoc(docRef);
